@@ -72,7 +72,7 @@ function generateLink(txt_name, txt_address_line1, opt_region){
 	for (lang in languages) {
 		try {
 			var body = decodeURIComponent(
-			((selected_region_code in bodyEncoded) ? bodyEncoded[selected_region_code][lang] : bodyEncoded["OTHERS"][lang]).replaceAll('+', '%20')); // + txt_name.value + ",\n" + txt_address.value + "\n" + txt_name.value;
+			((selected_region_code in bodyEncoded) ? bodyEncoded[selected_region_code][lang] : bodyEncoded["OTHERS"][lang]).replaceAll('+', '%20'));
 
 			
 			body = body.replaceAll('<<Name>>', txt_name.value).replaceAll('<<AddressLine1>>', txt_address_line1.value).replaceAll('<<STATE>>', states[selected_region_code].toUpperCase())
