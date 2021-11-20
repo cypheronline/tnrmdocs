@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Emergency Petition</title>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+	    <style type="text/css">
+			label, textarea, input, select, a, button {
+				font-size: 190%;
+			}
+
+			label {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<br>
+			<form id="form1">
+				<div class="row">
+					<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+					<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+						<label for="txtname">Sender's Name</label>
+					</div>
+					<div class="col-sm-4 col-xs-4 col-md-5 col-lg-5">
+						<input type="text" id="txtname" value="" required>
+					</div>		
+				</div><br><br>
+				<div class="row">
+					<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+					<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+						<label for="txtaddressline1">Full Address with Pincode</label>
+					</div>
+					<div class="col-sm-4 col-xs-4 col-md-5 col-lg-5">
+						<textarea id="txtaddressline1" rows="6" required></textarea>
+					</div>		
+				</div><br><br>
+				<div class="row">
+					<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+					<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+						<label for="optregion">State/Region</label>
+					</div>
+					<div class="col-sm-4 col-xs-4 col-md-5 col-lg-5">
+						<select id="optregion"></select>
+					</div>
+				</div>
+				<br><br>
+				<div class="row">
+					<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+					<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+						<button type="button" onclick="generateLink(txtname, txtaddressline1, optregion)">GENERATE LINK(S)</button>
+					</div>
+				</div>
+			</form>
+			<br>
+			<div class="row">
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+				<div class="col-sm-11 col-xs-11 col-md-11 col-lg-8" id="output"></div>		
+			</div>
+			<br>
+		</div>
+
+		<!-- <script type="text/javascript" src="email_body.json"></script> -->
+		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs/js/ep.js"></script> -->
+		<script type="text/javascript" src="js/ep.js"></script>
+
+		<script type="text/javascript">
+			window.onload = function() {
+				var optRegion = document.getElementById("optregion");
+				optRegion.innerHTML = "";
+
+				for (var i in states) {
+					let option = document.createElement("option");
+					option.value = i;
+					option.innerHTML = states[i];
+					optRegion.appendChild(option);
+				}
+			}
+		</script>
+
+	</body>
+</html>
