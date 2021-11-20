@@ -65,15 +65,14 @@
 			<br>
 		</div>
 
-		<!-- <script type="text/javascript" src="email_body.json"></script> -->
-		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs/js/ep.js"></script> -->
-		<script type="text/javascript" src="js/ep.js"></script>
+		<script type="text/json" src="https://purge.jsdelivr.net/gh/cypheronline/tnrmdocs@latest/js/ep.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@latest/js/ep.js"></script>
+		<!-- <script type="text/javascript" src="js/ep.js"></script> -->
 
 		<script type="text/javascript">
 			window.onload = function() {
 				var optRegion = document.getElementById("optregion");
 				optRegion.innerHTML = "";
-
 				for (var i in states) {
 					let option = document.createElement("option");
 					option.value = i;

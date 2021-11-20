@@ -1,4 +1,12 @@
 
+// Base URL for CDN
+var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@latest"
+var cdn_purge_base_url = "https://purge.jsdelivr.net/gh/cypheronline/tnrmdocs@latest"
+
+
+/****
+ * Read from remote JSON file
+****/
 function readFromJSON(filePath, mimeType) {
 	try {
 		var xmlhttp=new XMLHttpRequest();
@@ -21,13 +29,18 @@ function readFromJSON(filePath, mimeType) {
 	}
 }
 
-var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@latest"
+
+// Purging cached CDN content
+readFromJSON(cdn_base_url + "/js/states.json");
+readFromJSON(cdn_base_url + "/js/dc_email_ids.json");
+readFromJSON(cdn_base_url + "/js/email_body.json");
 
 var states = readFromJSON(cdn_base_url + "/js/states.json");
 
 var languages = {"EN":"English", "TA":"Tamil", "ML": "Malayalam"}
 
 
+// Link captions by language 
 var linkCaptionsByLang = {
 
 	"EN":"Click to draft mail in English!!",
@@ -38,6 +51,7 @@ var linkCaptionsByLang = {
 }
 
 
+// Email subject by language
 var subjectsByLang = {
 	
 	"EN":"Request under Section 76 of the Evidence Act to provide supporting documents for the deprivation of my life and liberty.",
@@ -54,6 +68,10 @@ var to = readFromJSON(cdn_base_url + "/js/dc_email_ids.json");
 
 var bodyEncoded = readFromJSON(cdn_base_url + "/js/email_body.json");
 
+
+/****
+ * Generate link(s) based on the input
+****/
 function generateLink(txt_name, txt_address_line1, opt_region){
 	
 	var form1 = document.getElementById("form1");
@@ -90,6 +108,4 @@ function generateLink(txt_name, txt_address_line1, opt_region){
 			console.log("Content not found in " + languages[lang] + " for " + states[selected_region_code]);
 		}
 	}
-
-	// window.open(link_href, '_self');
 }
