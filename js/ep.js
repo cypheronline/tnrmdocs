@@ -68,24 +68,58 @@ var to = readFromJSON(cdn_base_url + "/js/dc_email_ids.json");
 
 var bodyEncoded = readFromJSON(cdn_base_url + "/js/email_body.json");
 
+function copy_text_to_clipboard(target_elem) {
+	target_elem.select();
+	document.execCommand("copy");
+}
+
+
+function createPrintBox(content, rows=10, cols=50) {
+	box = document.createElement('textarea');
+	box.value = content;
+	box.cols = cols;
+	box.rows = rows;
+	return box;
+}
+
+
+function printEmail(full_email, full_email_elems){
+
+	if(full_email_elems['container_element'] != undefined){
+		let container = document.getElementById(full_email_elems['container_element']);
+		container.hidden = false;
+	}
+		
+	for (key in full_email) {
+		full_email_elems[key].value = full_email[key];
+	}
+}
+
 
 /****
  * Generate link(s) based on the input
 ****/
-function generateLink(txt_name, txt_address_line1, opt_region){
+function generateLink(txt_name, txt_address_line1, opt_region, output_elem, full_email_elems){
 	
+	let container = document.getElementById(full_email_elems['container_element']);
+	container.hidden = true;
+	var full_email = {};
+
+
 	var form1 = document.getElementById("form1");
 	if (!form1.checkValidity()) {
 		form1.reportValidity();
 		throw exception("Check inputs!!")
 	}
 	
-	output_elem = document.getElementById("output");
 	output_elem.innerHTML = "";
 
 	var selected_region_code = opt_region.value;
 
 	var cc = "TNRMLETTER2COLLECTORS@GMAIL.COM";
+
+	full_email['to'] = to[selected_region_code];
+	full_email['cc'] = cc;
 	
 	for (lang in languages) {
 		try {
@@ -97,8 +131,18 @@ function generateLink(txt_name, txt_address_line1, opt_region){
 
 			var link_href = "mailto:" + encodeURIComponent(to[selected_region_code]) + "?" + "cc=" + encodeURIComponent(cc) + "&" + "subject=" + encodeURIComponent(subjectsByLang[lang]) + "&" + "Content-type=text/html" + "&" + "body=" + encodeURIComponent(body);
 			
+			full_email['subject'] = subjectsByLang[lang];
+			full_email['body'] = body;
+
 			let link = document.createElement("a");
-			link.href = link_href;
+			link.id = "lnk" + lang;
+			link.href = "#" + link.id;
+			link.onclick = function() {
+				printEmail(full_email, full_email_elems);
+				if(confirm("Do you want to open the email App?"))
+					window.location = link_href;
+			};
+			
 			link.innerHTML = linkCaptionsByLang[lang];
 			output_elem.appendChild(link);
 			output_elem.appendChild(document.createElement("br"));
@@ -108,4 +152,6 @@ function generateLink(txt_name, txt_address_line1, opt_region){
 			console.log("Content not found in " + languages[lang] + " for " + states[selected_region_code]);
 		}
 	}
+
+
 }
