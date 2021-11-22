@@ -14,6 +14,16 @@ window.onload = function() {
 		full_email_elems[key].value = "";
 	}
 
+
+	let copyButtons = document.querySelectorAll(".copy_button");
+
+	for (key in copyButtons) {
+		if (!isNaN(key)){
+			let target_text_field = document.getElementById(copyButtons[key].getAttribute('for'));
+			copyButtons[key].onclick = function(){ copy_text_to_clipboard(target_text_field) }
+		}
+	}
+
 	// var optRegion = document.getElementById("optregion");
 	optregion.innerHTML = "";
 
