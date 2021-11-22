@@ -37,7 +37,7 @@ readFromJSON(cdn_purge_base_url + "/js/email_body.json");
 
 var states = readFromJSON(cdn_base_url + "/js/states.json");
 
-var languages = {"EN":"English", "TA":"Tamil", "ML": "Malayalam"}
+var languages = {"EN":"English", "TA":"Tamil", "ML": "Malayalam", "KN": "Kannada", "TE": "Telugu", "HI": "Hindi"}
 
 
 // Link captions by language 
@@ -47,7 +47,13 @@ var linkCaptionsByLang = {
 	
 	"TA": "தமிழில் மின்னஞ்சல் அனுப்ப இங்கே கிளிக் செய்யவும்!!",
 	
-	"ML":"Click to draft mail in Malayalam!!"
+	"ML":"Click to draft mail in Malayalam!!",
+	
+	"KN":"Click to draft mail in Kannada!!",
+	
+	"TE":"Click to draft mail in Telugu!!",
+	
+	"HI":"Click to draft mail in Hindi!!"
 }
 
 
@@ -58,7 +64,13 @@ var subjectsByLang = {
 
 	"TA": "எனது வாழ்வு மற்றும் சுதந்திரம் பறிக்கப்பட்டதற்கான ஆதார ஆவணங்களை வழங்க சாட்சிய சட்டம் பிரிவு 76 ன் படி கோருதல்.",
 	
-	"ML":"എന്റെ ജീവിതത്തിനും സ്വാതന്ത്ര്യത്തിനും ഹാനികരമായ അനുബന്ധ രേഖകൾ നൽകാൻ ഇന്ത്യൻ എവിഡൻസ് ആക്ട് സെക്ഷൻ 76 പ്രകാരം അടിയന്തിര അപേക്ഷ."
+	"ML": "എന്റെ ജീവിതത്തിനും സ്വാതന്ത്ര്യത്തിനും ഹാനികരമായ അനുബന്ധ രേഖകൾ നൽകാൻ ഇന്ത്യൻ എവിഡൻസ് ആക്ട് സെക്ഷൻ 76 പ്രകാരം അടിയന്തിര അപേക്ഷ.",
+
+	"KN": "ಸಾಕ್ಷ್ಯ ಕಾಯಿದೆಯ ಸೆಕ್ಷನ್ 76 ರ ಅಡಿಯಲ್ಲಿ ನನ್ನ ಜೀವನ ಮತ್ತು ಸ್ವಾತಂತ್ರ್ಯವನ್ನು ಹರಿಸುವುದಕ್ಕೆ ಪೂರಕ ದಾಖಲೆಗಳನ್ನು ನೀಡಲು ವಿನಂತಿ.",
+
+	"TE": "సాక్ష్యాధారాల చట్టంలోని సెక్షన్ 76 ప్రకారం నా జీవితం మరియు స్వేచ్ఛను హరించడానికి సహాయక పత్రాలను అందించమని అభ్యర్థన.",
+
+	"HI": "साक्ष्य अधिनियम की धारा 76 के तहत मेरे जीवन और स्वतंत्रता से वंचित करने के लिए सहायक दस्तावेज प्रदान करने का अनुरोध।"
 }
 
 var stateLangs = {"TN": ["EN","TA"]}
