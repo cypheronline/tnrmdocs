@@ -103,7 +103,6 @@ function generateLink(txt_name, txt_address_line1, opt_region, output_elem, full
 	
 	let container = document.getElementById(full_email_elems['container_element']);
 	container.hidden = true;
-	var full_email = {};
 
 
 	var form1 = document.getElementById("form1");
@@ -118,18 +117,20 @@ function generateLink(txt_name, txt_address_line1, opt_region, output_elem, full
 
 	var cc = "TNRMLETTER2COLLECTORS@GMAIL.COM";
 
-	full_email['to'] = to[selected_region_code];
-	full_email['cc'] = cc;
 	
 	for (lang in languages) {
 		try {
+			let full_email = {};
+
+			full_email['to'] = to[selected_region_code];
+			full_email['cc'] = cc;
+
 			var body = decodeURIComponent(
 			((selected_region_code in bodyEncoded) ? bodyEncoded[selected_region_code][lang] : bodyEncoded["OTHERS"][lang]).replaceAll('+', '%20'));
-
 			
 			body = body.replaceAll('<<Name>>', txt_name.value).replaceAll('<<AddressLine1>>', txt_address_line1.value).replaceAll('<<STATE>>', states[selected_region_code].toUpperCase())
 
-			var link_href = "mailto:" + encodeURIComponent(to[selected_region_code]) + "?" + "cc=" + encodeURIComponent(cc) + "&" + "subject=" + encodeURIComponent(subjectsByLang[lang]) + "&" + "Content-type=text/html" + "&" + "body=" + encodeURIComponent(body);
+			let link_href = "mailto:" + encodeURIComponent(to[selected_region_code]) + "?" + "cc=" + encodeURIComponent(cc) + "&" + "subject=" + encodeURIComponent(subjectsByLang[lang]) + "&" + "Content-type=text/html" + "&" + "body=" + encodeURIComponent(body);
 			
 			full_email['subject'] = subjectsByLang[lang];
 			full_email['body'] = body;
