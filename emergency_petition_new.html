@@ -16,6 +16,14 @@
 			label {
 				font-weight: bold;
 			}
+
+			.inherit_width {
+				width: 100%;
+			}
+
+			.copy_button {
+				float: right;
+			}
 		</style>
 	</head>
 	<body>
@@ -53,34 +61,100 @@
 				<div class="row">
 					<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
 					<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
-						<button type="button" onclick="generateLink(txtname, txtaddressline1, optregion)">GENERATE LINK(S)</button>
+						<button id="btn_submit" type="button">GENERATE LINK(S)</button>
 					</div>
 				</div>
 			</form>
 			<br>
+
+
 			<div class="row">
 				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
 				<div class="col-sm-11 col-xs-11 col-md-11 col-lg-8" id="output"></div>		
 			</div>
 			<br>
+
 		</div>
 
-		<script type="text/json" src="https://purge.jsdelivr.net/gh/cypheronline/tnrmdocs@latest/js/ep.js"></script>
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@latest/js/ep.js"></script>
-		<!-- <script type="text/javascript" src="js/ep.js"></script> -->
 
-		<script type="text/javascript">
-			window.onload = function() {
-				var optRegion = document.getElementById("optregion");
-				optRegion.innerHTML = "";
-				for (var i in states) {
-					let option = document.createElement("option");
-					option.value = i;
-					option.innerHTML = states[i];
-					optRegion.appendChild(option);
-				}
-			}
-		</script>
+		<div id="full_email_container" class="container-fluid" hidden>
+
+			<div class="row">
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+				<div class="col-sm-10 col-xs-10 col-md-10 col-lg-8">
+					<label for="output_to_email_addrs">TO:</label>
+					<button onclick="copy_text_to_clipboard(output_to_email_addrs)" class="copy_button">Copy</button>					
+				</div>
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>		
+			</div>
+			<div class="row">
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+				<div class="col-sm-10 col-xs-10 col-md-10 col-lg-8">
+					<textarea id="output_to_email_addrs" class="inherit_width" readonly></textarea>
+				</div>
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>	
+			</div>
+			<br><br>
+
+
+			<div class="row">
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+				<div class="col-sm-10 col-xs-10 col-md-10 col-lg-8">
+					<label for="output_cc_email_addrs">CC:</label>
+					<button onclick="copy_text_to_clipboard(output_cc_email_addrs)" class="copy_button">Copy</button>
+				</div>
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>	
+			</div>
+			<div class="row">
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+				<div class="col-sm-10 col-xs-10 col-md-10 col-lg-8">
+					<textarea id="output_cc_email_addrs" class="inherit_width" readonly></textarea>
+				</div>
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>	
+			</div>
+			<br><br>
+
+
+			<div class="row">
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+				<div class="col-sm-10 col-xs-10 col-md-10 col-lg-8">
+					<label for="output_subject">SUBJECT:</label>
+					<button onclick="copy_text_to_clipboard(output_subject)" class="copy_button">Copy</button>
+				</div>
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>	
+			</div>
+			<div class="row">
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+				<div class="col-sm-10 col-xs-10 col-md-10 col-lg-8">
+					<textarea id="output_subject" class="inherit_width" readonly></textarea>
+				</div>
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>	
+			</div>
+			<br><br>
+
+
+			<div class="row">
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+				<div class="col-sm-10 col-xs-10 col-md-10 col-lg-8">
+					<label for="output_email_body">CONTENT:</label>
+					<button onclick="copy_text_to_clipboard(output_email_body)" class="copy_button">Copy</button>
+				</div>
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>	
+			</div>
+			<div class="row">
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>
+				<div class="col-sm-10 col-xs-10 col-md-10 col-lg-8">
+					<textarea id="output_email_body" class="inherit_width" rows=25 readonly></textarea>
+				</div>
+				<div class="col-sm-1 col-xs-1 col-md-1 col-lg-2"></div>	
+			</div>
+		</div>
+
+		<!-- <script type="text/json" src="https://purge.jsdelivr.net/gh/cypheronline/tnrmdocs/js/ep.js"></script> -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs/js/ep.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs/js/page.js"></script>
+		<!-- <script type="text/javascript" src="js/ep.js"></script>
+		<script type="text/javascript" src="js/page.js"></script> -->
 
 	</body>
 </html>
