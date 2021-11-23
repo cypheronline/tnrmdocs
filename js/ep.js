@@ -1,7 +1,7 @@
 
 // Base URL for CDN
-var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs"
-var cdn_purge_base_url = "https://purge.jsdelivr.net/gh/cypheronline/tnrmdocs"
+var cdn_base_url = "https://raw.githubusercontent.com/cypheronline/tnrmdocs/master";
+// var cdn_purge_base_url = "https://raw.githubusercontent.com/cypheronline/tnrmdocs/master";
 
 
 /****
@@ -31,9 +31,9 @@ function readFromJSON(filePath, mimeType) {
 
 
 // Purging cached CDN content
-readFromJSON(cdn_purge_base_url + "/js/states.json");
+/*readFromJSON(cdn_purge_base_url + "/js/states.json");
 readFromJSON(cdn_purge_base_url + "/js/dc_email_ids.json");
-readFromJSON(cdn_purge_base_url + "/js/email_body.json");
+readFromJSON(cdn_purge_base_url + "/js/email_body.json");*/
 
 var states = readFromJSON(cdn_base_url + "/js/states.json");
 
