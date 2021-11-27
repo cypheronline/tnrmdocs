@@ -1,6 +1,6 @@
 
 // Base URL for CDN
-var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@1.0";
+var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@1.0.1";
 // var cdn_purge_base_url = "https://purge.jsdelivr.net/gh/cypheronline/tnrmdocs";
 
 
