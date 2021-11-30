@@ -1,7 +1,7 @@
 
 // Base URL for CDN
-var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs"
-var cdn_purge_base_url = "https://purge.jsdelivr.net/gh/cypheronline/tnrmdocs"
+var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@1.1";
+// var cdn_base_url = "/tnrm";
 
 
 /****
@@ -29,13 +29,8 @@ function readFromJSON(filePath, mimeType) {
 	}
 }
 
-
-// Purging cached CDN content
-readFromJSON(cdn_purge_base_url + "/js/states.json");
-readFromJSON(cdn_purge_base_url + "/js/dc_email_ids.json");
-readFromJSON(cdn_purge_base_url + "/js/email_body.json");
-
 var states = readFromJSON(cdn_base_url + "/js/states.json");
+states['ALL'] = "All States & Union Territories of India";
 
 var languages = {"EN":"English", "TA":"Tamil", "ML": "Malayalam"}
 
@@ -64,9 +59,10 @@ var subjectsByLang = {
 var stateLangs = {"TN": ["EN","TA"]}
 
 var to = readFromJSON(cdn_base_url + "/js/dc_email_ids.json");
-// var to = readFromJSON("https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@6050de4/js/dc_email_ids.json");
+to['ALL'] = Object.values(to).join(' ');
 
 var bodyEncoded = readFromJSON(cdn_base_url + "/js/email_body.json");
+bodyEncoded['ALL'] = {"EN": bodyEncoded['OTHERS']['EN']};
 
 function copy_text_to_clipboard(target_elem) {
 	target_elem.select();
@@ -83,13 +79,16 @@ function createPrintBox(content, rows=10, cols=50) {
 }
 
 
-function printEmail(full_email, full_email_elems){
+function printEmail(full_email, full_email_elems) {
 
-	if(full_email_elems['container_element'] != undefined){
+	if(full_email_elems['container_element'] != undefined) {
 		let container = document.getElementById(full_email_elems['container_element']);
 		container.hidden = false;
 	}
-		
+
+	let to_delim = getToDelimiterSelector();
+	full_email['to'] = full_email['to'].replaceAll(';', to_delim.value).replaceAll(',', to_delim.value);
+
 	for (key in full_email) {
 		full_email_elems[key].value = full_email[key];
 	}
@@ -103,7 +102,6 @@ function generateLink(txt_name, txt_address_line1, opt_region, output_elem, full
 	
 	let container = document.getElementById(full_email_elems['container_element']);
 	container.hidden = true;
-
 
 	var form1 = document.getElementById("form1");
 	if (!form1.checkValidity()) {
@@ -120,17 +118,18 @@ function generateLink(txt_name, txt_address_line1, opt_region, output_elem, full
 	
 	for (lang in languages) {
 		try {
-			let full_email = {};
-
-			full_email['to'] = to[selected_region_code];
-			full_email['cc'] = cc;
 
 			var body = decodeURIComponent(
 			((selected_region_code in bodyEncoded) ? bodyEncoded[selected_region_code][lang] : bodyEncoded["OTHERS"][lang]).replaceAll('+', '%20'));
 			
-			body = body.replaceAll('<<Name>>', txt_name.value).replaceAll('<<AddressLine1>>', txt_address_line1.value).replaceAll('<<STATE>>', states[selected_region_code].toUpperCase())
+			body = body.replaceAll('<<Name>>', txt_name.value).replaceAll('<<AddressLine1>>', txt_address_line1.value).replaceAll('<<STATE>>', states[selected_region_code].toUpperCase());
 
 			let link_href = "mailto:" + encodeURIComponent(to[selected_region_code]) + "?" + "cc=" + encodeURIComponent(cc) + "&" + "subject=" + encodeURIComponent(subjectsByLang[lang]) + "&" + "Content-type=text/html" + "&" + "body=" + encodeURIComponent(body);
+			
+			let full_email = {};
+
+			full_email['to'] = to[selected_region_code];
+			full_email['cc'] = cc;
 			
 			full_email['subject'] = subjectsByLang[lang];
 			full_email['body'] = body;
@@ -139,9 +138,9 @@ function generateLink(txt_name, txt_address_line1, opt_region, output_elem, full
 			link.id = "lnk" + lang;
 			link.href = "#" + link.id;
 			link.onclick = function() {
-				printEmail(full_email, full_email_elems);
 				if(confirm("Do you want to open the email App?"))
 					window.location = link_href;
+				printEmail(full_email, full_email_elems);
 			};
 			
 			link.innerHTML = linkCaptionsByLang[lang];

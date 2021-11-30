@@ -3,7 +3,8 @@
 window.onload = function() {
 
 	var full_email_elems = {
-		"container_element": full_email_container.id, 
+		"container_element": full_email_container.id,
+		"cc": output_cc_email_addrs, 
 		"to": output_to_email_addrs,
 		"cc": output_cc_email_addrs,
 		"subject": output_subject,
@@ -14,18 +15,25 @@ window.onload = function() {
 		full_email_elems[key].value = "";
 	}
 
-
 	let copyButtons = document.querySelectorAll(".copy_button");
 
 	for (key in copyButtons) {
-		if (!isNaN(key)){
+		if (!isNaN(key)) {
 			let target_text_field = document.getElementById(copyButtons[key].getAttribute('for'));
 			copyButtons[key].onclick = function(){ copy_text_to_clipboard(target_text_field) }
 		}
 	}
 
-	// var optRegion = document.getElementById("optregion");
+
+	///
+	// Adding options to the "Region" dropdown
+	///
+
 	optregion.innerHTML = "";
+	let optionAll = document.createElement("option");
+	optionAll.value = "ALL";
+	optionAll.innerHTML = "All States (Except TN & Kerala)";
+	optregion.appendChild(optionAll);
 
 	for (var i in states) {
 		let option = document.createElement("option");
@@ -33,6 +41,11 @@ window.onload = function() {
 		option.innerHTML = states[i];
 		optregion.appendChild(option);
 	}
+
+
+	///
+	// Reset all elements
+	///
 
 	function resetAll() {
 		txtname.value = "";
@@ -68,7 +81,22 @@ window.onload = function() {
 		if (oldValue != this.value)
 			resetOutput();
 	}
+	
+	function replaceWithDelimiter() {
+		let elem = getToDelimiterSelector();
+		let to_emails_field = document.getElementById(elem.getAttribute('for'));
+		to_emails_field.value = to_emails_field.value.replaceAll(';', elem.value).replaceAll(',', elem.value);
+	}
 
+	for (selector of getToDelimiterSelectors()) {
+		selector.onchange = function() { replaceWithDelimiter() };
+		selector.onclick = function() { replaceWithDelimiter() };
+	}
+
+	/*inpcomma.onchange = function() {replaceWithDelimiter();}
+	inpcomma.onclick = function() {replaceWithDelimiter();}
+	inpsemicolon.onchange = function() {replaceWithDelimiter();}
+	inpsemicolon.onclick = function() {replaceWithDelimiter();}*/
 	txtname.onkeydown = keyDown;
 	txtname.onkeyup = keyUp;
 	txtaddressline1.onkeydown = keyDown;
