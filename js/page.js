@@ -30,10 +30,14 @@ window.onload = function() {
 	///
 
 	optregion.innerHTML = "";
-	let optionAll = document.createElement("option");
-	optionAll.value = "ALL";
-	optionAll.innerHTML = "All States (Except TN & Kerala)";
-	optregion.appendChild(optionAll);
+
+	for (var i = 1; i <= 2; i++) {
+		let optionAll = document.createElement("option");
+		optionAll.value = "ALL-" + i;
+		optionAll.innerHTML = "(" + i + ") All States (Except TN & Kerala)";
+		optregion.appendChild(optionAll);
+	}
+
 
 	for (var i in states) {
 		let option = document.createElement("option");

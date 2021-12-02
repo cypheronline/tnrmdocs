@@ -10,7 +10,7 @@
 	
 	"AP": "collector_antp@ap.gov.in; collectorchittoor@gmail.com; collector_kdp@ap.gov.in; collector_egd@ap.gov.in; collector_gntr@ap.gov.in; collector_krsn@ap.gov.in; collector_krnl@ap.gov.in; collector_nlr@ap.gov.in; collector_pkm@ap.gov.in; collector_sklm@ap.gov.in; collector_vspm@ap.gov.in; collector_vznm@ap.gov.in; collector_wgd@ap.gov.in;",
 
-	"TS": "collector_adbd@telangana.gov.in; collectorkumrambheem@gmail.com; collector.mancherial@gmail.com; collector-mrml@telangana@gmail.com; collectorbdd@gmail.com; collector.mahabubabad@gmail.com; collectorkmm@gmail.com; collector-srpt@telangana.gov.in; collector_nzbd@telangana.gov.in; collectorkmr@gmail.com; collr.ngkl@gmail.com; collector_nlgd@telangana.gov.in; collectorhyd@gmail.com; collectormedchal@gmail.com; collector-ydr@telangana.gov.in; collector-jgtl@telangana.gov.in; collector_krmn@telangana.gov.in; collector.rajanna@gmail.com; collectorpeddapalli@gmail.com; collector.jayashankar@gmail.com; collector-warangal@telangana.gov.in; collectorjangaon@gmail.com; collectorwglrural@gmail.com; collectorsdpt@gmail.com; medak.collector@gmail.com; collector-srd@telangana.gov.in; collector-mbd@telangana.gov.in; collector.jogulamba@gmail.com; collector-wnp@telangana.gov.in; collectorpeshirr@gmail.com; collectorvkb@gmail.com; collector-mlg@telangana.gov.in; collector-nrpt@telangana.gov.in;",
+	"TS": "collector_adbd@telangana.gov.in; collectorkumrambheem@gmail.com; collector.mancherial@gmail.com; collector-nml@telangana.gov.in; collectorbdd@gmail.com; collector.mahabubabad@gmail.com; collectorkmm@gmail.com; collector-srpt@telangana.gov.in; collector_nzbd@telangana.gov.in; collectorkmr@gmail.com; collr.ngkl@gmail.com; collector_nlgd@telangana.gov.in; collectorhyd@gmail.com; collectormedchal@gmail.com; collector-ydr@telangana.gov.in; collector-jgtl@telangana.gov.in; collector_krmn@telangana.gov.in; collector.rajanna@gmail.com; collectorpeddapalli@gmail.com; collector.jayashankar@gmail.com; collector-warangal@telangana.gov.in; collectorjangaon@gmail.com; collectorwglrural@gmail.com; collectorsdpt@gmail.com; medak.collector@gmail.com; collector-srd@telangana.gov.in; collector-mbd@telangana.gov.in; collector.jogulamba@gmail.com; collector-wnp@telangana.gov.in; collectorpeshirr@gmail.com; collectorvkb@gmail.com; collector-mlg@telangana.gov.in; collector-nrpt@telangana.gov.in;",
 	
 	"DL": "dccentral@nic.in; dceast@nic.in; dcnd@nic.in; dcnorth@nic.in; dcne@nic.in; dcnw@nic.in; dmshahdara.delhi@nic.in; dcsouth@nic.in; dcse.rev.delhi@nic.in; dcsw@nic.in; dcwest@nic.in;",
 
@@ -57,7 +57,7 @@
 	
 	"MZ": "dcaizawl-mz@nic.in;dc.cpi-mz@nic.in;dc.kolasib-mz@nic.in; dcofficeklb@gmail.com;dclawngtlai2010@gmail.com;dc.lunglei-mz@gov.in;dcmamit1998@gmail.com;dcsha-miz@nic.in; dcsaiha3@gmail.com;dc.serchhip-mz@gov.in;dc-hnahthial@mizoram.gov.in;dchnahthial19@gmail.com;dc-saitual@mizoram.gov.in; dcsaitual19@gmail.com;dckhawzawl2019@gmail.com;dckhawzawl@mizoram.gov.in;",
 
-	"NL": "ddmakma123@gmail.com; ddmadimapur@gmail.com; ddmamkg123@gmail.com; wokhaddma@gmail.com; ddmaphek2019@gmail.com; longlengddma@gmail.com; ddmatsg@gmail.com; ddmamon123@gmail.com; dczhb-ngl@nic.in; zunhebototowncouncil@gmail.comddmaprn11@gmail.com; kiphireddma@gmail.com;",
+	"NL": "ddmakma123@gmail.com; ddmadimapur@gmail.com; ddmamkg123@gmail.com; wokhaddma@gmail.com; ddmaphek2019@gmail.com; longlengddma@gmail.com; ddmatsg@gmail.com; ddmamon123@gmail.com; dczhb-ngl@nic.in; zunhebototowncouncil@gmail.com; ddmaprn11@gmail.com; kiphireddma@gmail.com;",
 	
 	"OR": "dm-angul@nic.in; dm-balasore@nic.in; dm-bargarh@nic.in; dm-bhadrak@nic.in; dm-balangir@nic.in; dm-boudha@nic.in; dm-cuttack@nic.in; dm-deogarh@nic.in; dm-dhenkanal@nic.in; dm-gajapati@nic.in; dm-ganjam@nic.in; dm-jagatsinghpur@nic.in; dm-jajpur@nic.in; dm-jharsuguda@nic.in; dm-kalahandi@nic.in; dm-kandhamal@nic.in; dm-kendrapara@nic.in; dm-keonjhar@nic.in; dm-khurda@nic.in; dm-koraput@nic.in; dm-malkangiri@nic.in; dm-mayurbhanj@nic.in; dm-nawarangpur@nic.in; dm-nayagarh@nic.in; dm-nuapada@nic.in; dm-puri@nic.in; dm-rayagada@nic.in; dm-sambalpur@nic.in; dm-sonepur@nic.in; dm-sundargarh@nic.in;",
 	
@@ -65,7 +65,7 @@
 	
 	"RJ": "dm-ajm-rj@nic.in; dm-alw-rj@nic.in; dm-ban-rj@nic.in; dm-bar-rj@nic.in; dm-bha-rj@nic.in; dm-bhi-rj@nic.in; dm-bik-rj@nic.in; dm-brn-rj@nic.in; rajbun@nic.in; dm-chi-rj@nic.in; dm-chu-rj@nic.in; dm-dau-rj@nic.in; dm-dho-rj@nic.in; dm-dun-rj@nic.in; dm-gan-rj@nic.in; dm-han-rj@nic.in; dm-jai-rj@nic.in; dm-jaip-rj@nic.in; dm-jal-rj@nic.in; dm-jha-rj@nic.in; dm-jhu-rj@nic.in; dm-jod-rj@nic.in; dm-kar-rj@nic.in; dm-kot-rj@nic.in; dm-nag-rj@nic.in; dm-pal-rj@nic.in; dm-raj-rj@nic.in; dm-saw-rj@nic.in; dm-sik-rj@nic.in; dm-sir-rj@nic.in; dm-ton-rj@nic.in; dm-uda-rj@nic.in;",
 	
-	"SK": "dceast-sk@nic.in; collectorwest@gmail.com; westdst@nic.in; dm.namchi@sikkim.gov.in; southdst@nic.in; dcnorthsikkim@yahoo.com; northdst@nic.in;",
+	"SK": "dceast-sk@nic.in; collectorwest@gmail.com; westdst@nic.in;dm.namchi@sikkim.gov.in; southdst@nic.in; dc-northsikkim@sikkim.gov.in; northdst@nic.in;",
 	
 	"TR": "dmdhalai-tr@nic.in; dmgomati@gmail.com; triudp@nic.in; dmkhowai-tr@nic.in; dmkhowai@gmail.com; dmnorth-tr@nic.in; dmnorthtripura@gmail.com; dmspj-tr@nic.in; dmspj2012@gmail.com; dmsouth-tr@nic.in; dmsouthbln@gmail.com; dmunakoti-tr@nic.in; dmwest-tr@nic.in;",
 	
