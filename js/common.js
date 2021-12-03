@@ -3,7 +3,7 @@ var getToDelimiterSelector = function() { return document.querySelector('input[n
 var getToDelimiterSelectors = function() { return document.querySelectorAll('input[name="to_delimiter"]'); }
 
 // Base URL for CDN
-var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@2.1";
+var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@2.2";
 // var cdn_base_url = "/tnrm";
 
 
