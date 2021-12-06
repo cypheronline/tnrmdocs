@@ -3,7 +3,7 @@ var getToDelimiterSelector = function() { return document.querySelector('input[n
 var getToDelimiterSelectors = function() { return document.querySelectorAll('input[name="to_delimiter"]'); }
 
 // Base URL for CDN
-var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@2.2";
+var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@2.3";
 // var cdn_base_url = "/tnrm";
 
 
@@ -75,15 +75,15 @@ var languages = {"EN":"English", "TA":"Tamil", "ML": "Malayalam", "KN": "Kannada
 // Link captions by language 
 var linkCaptionsByLang = {
 
-	"EN":"Click to draft mail in English!!",
+	"EN":"Click here to draft mail in English!!",
 	
 	"TA": "தமிழில் மின்னஞ்சல் அனுப்ப இங்கே கிளிக் செய்யவும்!!",
 	
-	"ML":"Click to draft mail in Malayalam!!",
+	"ML":"Click here to draft mail in Malayalam!!",
 	
-	"KN":"Click to draft mail in Kannada!!",
+	"KN":"Click here to draft mail in Kannada!!",
 	
-	"TE":"Click to draft mail in Telugu!!",
+	"TE":"Click here to draft mail in Telugu!!",
 	
-	"HI":"Click to draft mail in Hindi!!"
+	"HI":"Click here to draft mail in Hindi!!"
 }

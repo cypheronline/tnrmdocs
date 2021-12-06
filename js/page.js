@@ -34,7 +34,7 @@ window.onload = function() {
 	for (var i = 1; i <= 2; i++) {
 		let optionAll = document.createElement("option");
 		optionAll.value = "ALL-" + i;
-		optionAll.innerHTML = "(" + i + ") All States (Except TN & Kerala)";
+		optionAll.innerHTML = "(" + i + ") All States & Union Territories";
 		optregion.appendChild(optionAll);
 	}
 

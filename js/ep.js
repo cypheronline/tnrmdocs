@@ -119,7 +119,7 @@ bodyEncoded['ALL'] = {"EN": bodyEncoded['OTHERS']['EN']};
 
 // Adding email body in all languages to bodyEncoded['ALL']
 for(let key_state in bodyEncoded) {
-	if (key_state != "TN" && key_state != "KL") {
+	if (key_state != "TN") {
 		let body_enc_by_lang = bodyEncoded[key_state];
 		for(let lang in body_enc_by_lang) {
 			if (!bodyEncoded['ALL'].hasOwnProperty(lang)) {
