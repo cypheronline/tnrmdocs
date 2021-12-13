@@ -48,7 +48,7 @@ function generateLink(txt_name, txt_address_line1, opt_region, output_elem, full
 
 	var selected_regn_code = opt_region.value;
 
-	var cc = "TNRMLETTER2COLLECTORS@GMAIL.COM";
+	var cc = "crpc144mail2cm@gmail.com;";
 
 	
 	for (lang in languages) {
