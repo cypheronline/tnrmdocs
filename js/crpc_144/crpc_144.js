@@ -95,39 +95,30 @@ function generateLink(txt_name, txt_address_line1, opt_region, output_elem, full
 // Email subject by language
 var subjectsByLang = {
 	
-	"EN":"Request under Section 76 of the Evidence Act to provide supporting documents for the deprivation of my life and liberty.",
+	"EN":"Application under CrPC section 144(6), request you to exercise the provisions conferred in CrPC Sections 144(4&7) and withdraw the unlawful restrictions immediately.",
 
-	"TA": "எனது வாழ்வு மற்றும் சுதந்திரம் பறிக்கப்பட்டதற்கான ஆதார ஆவணங்களை வழங்க சாட்சிய சட்டம் பிரிவு 76 ன் படி கோருதல்.",
-	
-	"ML": "എന്റെ ജീവിതത്തിനും സ്വാതന്ത്ര്യത്തിനും ഹാനികരമായ അനുബന്ധ രേഖകൾ നൽകാൻ ഇന്ത്യൻ എവിഡൻസ് ആക്ട് സെക്ഷൻ 76 പ്രകാരം അടിയന്തിര അപേക്ഷ.",
-
-	"KN": "ಸಾಕ್ಷ್ಯ ಕಾಯಿದೆಯ ಸೆಕ್ಷನ್ 76 ರ ಅಡಿಯಲ್ಲಿ ನನ್ನ ಜೀವನ ಮತ್ತು ಸ್ವಾತಂತ್ರ್ಯವನ್ನು ಹರಿಸುವುದಕ್ಕೆ ಪೂರಕ ದಾಖಲೆಗಳನ್ನು ನೀಡಲು ವಿನಂತಿ.",
-
-	"TE": "సాక్ష్యాధారాల చట్టంలోని సెక్షన్ 76 ప్రకారం నా జీవితం మరియు స్వేచ్ఛను హరించడానికి సహాయక పత్రాలను అందించమని అభ్యర్థన.",
-
-	"HI": "साक्ष्य अधिनियम की धारा 76 के तहत मेरे जीवन और स्वतंत्रता से वंचित करने के लिए सहायक दस्तावेज प्रदान करने का अनुरोध।"
+	"TA": "CrPC பிரிவு 144(6) இன் படி வழங்கப்படும் விண்ணப்பம். CrPC பிரிவுகள் 144(4&7) இல் குறிப்பிடப்பட்டுள்ள விதிகளை நடைமுறைபடுத்தவும், மாநில / ஒன்றியப் பிரதேசத்தில் அமல்படுத்தப்பட்டுள்ள சட்ட விரோத கட்டுப்பாடுகளை உடனடியாக கைவிடுமாறும் கோருதல் தொடர்பாக."
 }
 
 var stateLangs = {"TN": ["EN","TA"]}
 
-var to = readFromJSON(cdn_base_url + "/js/dc_email_ids.json");
-var bodyEncoded = readFromJSON(cdn_base_url + "/js/email_body.json");
+var to = {
+	"ALL-1": readFromJSON(cdn_base_url + "/js/common/cm_email_ids.json")['ALL'] + readFromJSON(cdn_base_url + "/js/common/governors_email_ids.json")['ALL']
+};
+var bodyEncoded = readFromJSON(cdn_base_url + "/js/crpc_144/crpc_email_body.json");
 
 // to['ALL'] = Object.values(to).join(' ');
-bodyEncoded['ALL'] = {"EN": bodyEncoded['OTHERS']['EN']};
 
 
 // Adding email body in all languages to bodyEncoded['ALL']
 for(let key_state in bodyEncoded) {
-	if (key_state != "TN") {
-		let body_enc_by_lang = bodyEncoded[key_state];
-		for(let lang in body_enc_by_lang) {
-			if (!bodyEncoded['ALL'].hasOwnProperty(lang)) {
-				bodyEncoded['ALL'][lang] = body_enc_by_lang[lang];
-			}
+	let body_enc_by_lang = bodyEncoded[key_state];
+	for(let lang in body_enc_by_lang) {
+		if (!bodyEncoded['ALL'].hasOwnProperty(lang)) {
+			bodyEncoded['ALL'][lang] = body_enc_by_lang[lang];
 		}
 	}
 }
 
-to['ALL-1'] = Object.values(getEmailIdsByKeyRange(to, "TN", "HR")).join(' ');
-to['ALL-2'] = Object.values(getEmailIdsByKeyRange(to, "HP", "WB")).join(' ');
+/*to['ALL-1'] = Object.values(getEmailIdsByKeyRange(to, "TN", "HR")).join(' ');
+to['ALL-2'] = Object.values(getEmailIdsByKeyRange(to, "HP", "WB")).join(' ');*/

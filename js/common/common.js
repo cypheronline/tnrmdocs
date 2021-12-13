@@ -3,7 +3,7 @@ var getToDelimiterSelector = function() { return document.querySelector('input[n
 var getToDelimiterSelectors = function() { return document.querySelectorAll('input[name="to_delimiter"]'); }
 
 // Base URL for CDN
-var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@2.3";
+var cdn_base_url = "https://cdn.jsdelivr.net/gh/cypheronline/tnrmdocs@3.0";
 // var cdn_base_url = "/tnrm";
 
 
@@ -66,7 +66,7 @@ function getPatternCountsByKeys(obj, delim) {
 }
 
 
-var states = readFromJSON(cdn_base_url + "/js/states.json");
+var states = readFromJSON(cdn_base_url + "/js/common/states.json");
 states['ALL'] = "All States & Union Territories of India";
 
 var languages = {"EN":"English", "TA":"Tamil", "ML": "Malayalam", "KN": "Kannada", "TE": "Telugu", "HI": "Hindi"}
